@@ -6,6 +6,16 @@ This is a simple notes app built with React and Django.
 2. Node.js
 3. React
 
+## Setup Jenkins on AWS EC2
+
+    Launch an EC2 Instance:
+        Choose an Amazon Machine Image (AMI) with Ubuntu.
+        Select an instance type (e.g., t2.micro for testing).
+        Configure security group to allow HTTP, HTTPS,along with port 8080 and SSH access
+
+    
+
+
 ## Installation
 1. Clone the repository
 ```

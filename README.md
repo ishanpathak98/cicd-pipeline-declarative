@@ -15,6 +15,17 @@ This is a simple notes app built with React and Django.
 
     
 
+## Install Jenkins on the EC2 Instance:
+```
+sudo apt update
+sudo apt install openjdk-11-jdk -y
+wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt install jenkins -y
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+```
 
 ## Installation
 1. Clone the repository
@@ -37,4 +48,23 @@ docker run -d -p 8000:8000 notes-app:latest
 Install Nginx reverse proxy to make this application available
 
 `sudo apt-get update`
-`sudo apt install nginx`
+`sudo apt install nginx` 
+
+Access Jenkins:
+
+    Open a web browser and navigate to http://your_ec2_instance_ip_or_domain:8080
+    Follow the setup wizard to complete the Jenkins installation.
+
+Install Required Plugins:
+
+    Install Docker Pipeline plugin from Jenkins plugin manager.
+
+Configure Docker in Jenkins:
+
+    Go to Jenkins > Manage Jenkins > Configure System
+    Under "Docker", configure Docker settings and provide Docker Hub credentials.
+
+Create a Jenkins Pipeline Job:
+
+    In Jenkins, create a new pipeline job.
+    Use the Jenkinsfile provided above in the pipeline script.

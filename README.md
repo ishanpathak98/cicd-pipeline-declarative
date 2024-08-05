@@ -50,7 +50,7 @@ Install Nginx reverse proxy to make this application available
 `sudo apt-get update`
 `sudo apt install nginx` 
 
-Access Jenkins:
+## Access Jenkins:
 
     Open a web browser and navigate to http://your_ec2_instance_ip_or_domain:8080
     Follow the setup wizard to complete the Jenkins installation.

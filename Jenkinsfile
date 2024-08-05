@@ -10,7 +10,7 @@ pipeline {
     stages{
         stage("Clone Code"){
             steps{
-                git url: "https://github.com/LondheShubham153/django-notes-app.git", branch: "main"
+                git url: "https://github.com/ishanpathak98/cicd-pipeline-declarative.git", branch: "main"
                 echo "Aaj toh LinkedIn Post bannta hai boss"
             }
         }

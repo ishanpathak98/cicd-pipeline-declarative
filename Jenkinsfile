@@ -11,7 +11,7 @@ pipeline {
         stage("Clone Code"){
             steps{
                 git url: "https://github.com/ishanpathak98/cicd-pipeline-declarative.git", branch: "main"
-                echo "Aaj toh LinkedIn Post bannta hai boss"
+                echo "Cloning The Code"
             }
         }
         stage("Build & Test"){

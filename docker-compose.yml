@@ -1,6 +1,36 @@
-version : "3.3"
-services :
-  web :
-     image : trainwithshubham/notes-app-jenkins:latest
-     ports :
-         - "8000:8000"
+version: '3.8'
+
+services:
+  nodejs_app:
+    build:
+      context: ./nodejs_app
+    container_name: nodejs_app
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+  react_app:
+    build:
+      context: ./react_app
+    container_name: react_app
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/certs:/etc/nginx/certs
+    depends_on:
+      - nodejs_app
+      - react_app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
